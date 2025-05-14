@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Student Assignments</h2>
+
+  <!-- Select course -->
+  <label for="course">Select Course:</label>
+  <select id="course" [(ngModel)]="selectedCourse" (change)="loadAssignments(selectedCourse)">
+    <option value="">-- Choose a course --</option>
+    <option value="programming">Programming</option>
+    <option value="math">Math</option>
+    <option value="science">Science</option>
+  </select>
+
+  <!-- List of Assignments -->
+  <div *ngIf="assignments.length > 0">
+    <h3>Assignments for {{ selectedCourse }}</h3>
+    <ul>
+      <li *ngFor="let assignment of assignments">
+        <strong>{{ assignment.title }}</strong>
+        <span class="description">{{ assignment.description }}</span>
+        <span class="due-date">Due: {{ assignment.dueDate }}</span>
+      </li>
+      
+    </ul>
+  </div>
+</div>

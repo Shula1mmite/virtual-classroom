@@ -1,0 +1,30 @@
+<div class="page-container">
+  <!-- Category Filter -->
+  <section class="category-filter">
+    <h2>Select Category</h2>
+    <div class="category-options">
+      <button (click)="filterByCategory('All')" [class.active]="selectedCategory === 'All'">All Courses</button>
+      <button (click)="filterByCategory('Programming')" [class.active]="selectedCategory === 'Programming'">Programming</button>
+      <button (click)="filterByCategory('Math')" [class.active]="selectedCategory === 'Math'">Math</button>
+      <button (click)="filterByCategory('Science')" [class.active]="selectedCategory === 'Science'">Science</button>
+    </div>
+  </section>
+
+  <!-- Display Courses Based on Selected Category -->
+  <section class="courses-list">
+    <div class="course-card" *ngFor="let course of filteredCourses">
+      <div class="image-container">
+        <img [src]="course.image" alt="{{ course.title }} image" />
+      </div>
+      <div class="course-details">
+        <h3>{{ course.title }}</h3>
+        <p class="category">{{ course.category }}</p>
+        <p>{{ course.description }}</p>
+        <div class="tags">
+          <span *ngFor="let tag of course.tags" class="tag">{{ tag }}</span>
+        </div>
+        <a href="/resources" class="btn">View Course</a>
+      </div>
+    </div>
+  </section>
+</div>

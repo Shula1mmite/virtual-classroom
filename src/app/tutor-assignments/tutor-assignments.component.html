@@ -1,0 +1,31 @@
+<div class="course-selection">
+  <label for="course">Select a Course:</label>
+  <select [(ngModel)]="selectedCourse" (change)="onCourseChange(selectedCourse)" id="course" required>
+    <option value="">-- Select a course --</option>
+    <option value="programming">Programming</option>
+    <option value="math">Math</option>
+    <option value="science">Science</option>
+  </select>
+</div>
+
+<!-- Display assignment form only if a course is selected -->
+<!-- Display assignment form only if a course is selected -->
+<div *ngIf="selectedCourse">
+  <form [formGroup]="assignmentForm" (ngSubmit)="submitAssignment()" class="assignment-form">
+    <input formControlName="title" placeholder="Title" required />
+    <textarea formControlName="description" placeholder="Description" required></textarea>
+    <input formControlName="dueDate" type="date" required />
+    <button type="submit">Add Assignment</button>
+  </form>
+</div>
+
+
+<!-- Display list of assignments only if a course is selected -->
+<div *ngIf="selectedCourse">
+  <hr />
+  <div *ngFor="let assignment of filteredAssignments" class="assignment-card">
+    <h3>{{ assignment.title }}</h3>
+    <p>{{ assignment.description }}</p>
+    <p><strong>Due:</strong> {{ assignment.dueDate }}</p>
+  </div>
+</div>

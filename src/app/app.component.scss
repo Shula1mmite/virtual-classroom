@@ -1,0 +1,22 @@
+/* app.component.scss */
+ion-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure the content takes full available space */
+  justify-content: flex-start; /* Start from the top to avoid any empty space at the top */
+}
+
+
+
+body {
+
+  margin: 0;
+}
+.background-element {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Make sure it's behind the content */
+}

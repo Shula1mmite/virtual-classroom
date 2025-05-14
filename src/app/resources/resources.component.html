@@ -1,0 +1,26 @@
+<header>
+  <h1>Resources</h1>
+</header>
+
+<main>
+  <!-- File upload form -->
+
+  <!-- Display list of uploaded resources -->
+  <div class="resource-list" *ngIf="resources.length > 0">
+    <div class="resource-item" *ngFor="let resource of resources">
+      <div class="resource-details">
+        <h2>{{ resource.fileName }}</h2>
+        <p>{{ resource.course }}</p>
+        <p>
+          <a href="{{ resource.fileUrl }}" target="_blank" rel="noopener noreferrer">
+            View / Download
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <button *ngIf="resources.length === 0" class="no-resources-button">
+    No resources uploaded yet.
+  </button>
+</main>

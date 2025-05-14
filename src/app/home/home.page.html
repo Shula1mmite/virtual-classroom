@@ -1,0 +1,32 @@
+<header class="navbar">
+  <div class="logo">
+    <h1>Your Virtual Classroom</h1>
+  </div>
+  <nav class="navbar-nav">
+    <a routerLink="/courses">Courses</a>
+    <a routerLink="/community">Community</a>
+    <a routerLink="/live-classes">Live Classes</a>
+    <a routerLink="/assignments">Assignments</a>
+    <a routerLink="/resources">Resources</a>
+    <a routerLink="/dashboard">Dashboard</a>
+  </nav>
+</header>
+
+<main class="content">
+  <!-- Introduction/Overview Section -->
+  <section id="overview">
+    <h2>Welcome to Your Virtual Classroom</h2>
+    <p>Engage in interactive learning and explore a world of knowledge with our platform.</p>
+    <a class="btn primary-btn" routerLink="/courses">Explore Courses</a>
+  </section>
+
+  <!-- Upcoming Events Section -->
+  <section id="upcoming-events">
+    <h3>Upcoming Events</h3>
+    <div class="event-card" *ngFor="let event of upcomingEvents">
+      <h4>{{ event.title }}</h4>
+      <p>{{ event.date | date }}</p>
+      <p>{{ event.description }}</p>
+    </div>
+  </section>
+</main>

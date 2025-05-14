@@ -1,0 +1,124 @@
+.course-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem auto 2rem;
+  padding: 1.5rem 2rem;
+  background-color: #f0f4ff;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  max-width: 90%;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.1);
+
+  label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 1rem;
+  }
+
+  select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: border 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #0056b3;
+    }
+  }
+}
+
+.assignment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 95%;
+  width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  gap: 1rem;
+
+  input,
+  textarea,
+  button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: #007bff;
+  }
+}
+
+.assignment-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-left: 5px solid #007bff;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin: 1rem auto;
+  max-width: 95%;
+  width: 600px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  p {
+    margin: 0.5rem 0;
+    color: #555;
+
+    strong {
+      color: #000;
+    }
+  }
+}

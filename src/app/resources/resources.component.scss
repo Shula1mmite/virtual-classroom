@@ -1,0 +1,68 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #1a3d6b; /* Primary color */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  main {
+    padding: 2rem;
+  }
+  
+  .resource-list {
+    margin-top: 1rem;
+  }
+  
+  .resource-item {
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .resource-item h2 {
+    font-size: 1.4rem;
+    color: #1a3d6b; /* Primary color */
+  }
+  
+  .resource-item p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .resource-item a {
+    color: #1a3d6b; /* Primary color */
+    text-decoration: none;
+  }
+  
+  .resource-item a:hover {
+    text-decoration: underline;
+  }
+  
+  .no-resources-button {
+    background-color: #e6f0fa; /* Light blue accent */
+    border: none;
+    color: #1a3d6b; /* Primary color */
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .no-resources-button:hover {
+    background-color: #d4e4f7; /* Slightly darker shade for hover */
+  }
+  

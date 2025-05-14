@@ -1,0 +1,50 @@
+<div class="community-section">
+  <section class="create-post-container">
+    <h2>Create a New Post</h2>
+    <input [(ngModel)]="newPost.title" placeholder="Post Title" class="input-field" />
+    <textarea [(ngModel)]="newPost.content" placeholder="Post Content" class="textarea-field"></textarea>
+    <select [(ngModel)]="newPost.category" class="select-field">
+      <option value="General Discussions">General Discussions</option>
+      <option value="Course-related Q&A">Course-related Q&A</option>
+      <option value="Announcements">Announcements</option>
+    </select>
+    <button (click)="createPost()" class="btn">Create Post</button>
+  </section>
+
+  <div class="forum-categories">
+    <button (click)="filterPostsByCategory('General Discussions')" class="category-btn">General Discussions</button>
+    <button (click)="filterPostsByCategory('Course-related Q&A')" class="category-btn">Course-related Q&A</button>
+    <button (click)="filterPostsByCategory('Announcements')" class="category-btn">Announcements</button>
+  </div>
+
+  <div class="posts-list">
+    <div class="post-card" *ngFor="let post of filteredPosts">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.content }}</p>
+      <p>
+        <strong>Posted by:</strong> {{ post.username }} |
+        <strong>Category:</strong> {{ post.category }}
+      </p>
+      <small>{{ post.comments?.length || 0 }} comments</small>
+
+      <button (click)="toggleCommentInput(post.id)" class="comment-btn">Comment</button>
+      <div *ngIf="post.showCommentInput" class="comment-input-container">
+        <input [(ngModel)]="newCommentText[post.firebaseKey!]" placeholder="Write a comment..." class="input-field" />
+        <button (click)="addComment(post.firebaseKey!)" class="post-btn">Post Comment</button>
+
+      </div>
+      <button (click)="toggleComments(post.id)" class="comment-btn">
+        {{ post.showComments ? 'Hide Comments' : 'View Comments' }}
+      </button>
+
+      <div class="comments-list" *ngIf="post.comments && post.comments.length > 0 && post.showComments">
+        <div class="comment-item" *ngFor="let comment of post.comments">
+          <p>
+            <strong>{{ comment.username }}:</strong> {{ comment.commentText }}
+          </p>
+          <small>{{ comment.timestamp | date: 'short' }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

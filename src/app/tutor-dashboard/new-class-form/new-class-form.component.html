@@ -1,0 +1,34 @@
+<header class="header-bar">
+  Create New Class
+</header>
+
+<main class="form-container">
+  <form [formGroup]="classForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label for="className">Class Name</label>
+      <input id="className" type="text" formControlName="className" required />
+    </div>
+
+    <div class="form-field">
+      <label for="subject">Subject</label>
+      <input id="subject" type="text" formControlName="subject" required />
+    </div>
+
+    <div class="form-field">
+      <label for="dateTime">Date and Time</label>
+      <input id="dateTime" type="datetime-local" formControlName="dateTime" />
+    </div>
+
+    <div class="form-field">
+      <label for="duration">Duration (in minutes)</label>
+      <input id="duration" type="number" formControlName="duration" />
+    </div>
+
+    <div class="form-field">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="submit-button">Save Class</button>
+  </form>
+</main>

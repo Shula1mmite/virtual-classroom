@@ -1,0 +1,57 @@
+<div class="auth-container">
+  <div class="auth-box">
+    <h2>Sign Up</h2>
+    <form (ngSubmit)="signUp()" #signUpForm="ngForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="username"
+          required
+          placeholder="Choose a username"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="email"
+          required
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          placeholder="Create a password"
+        />
+      </div>
+
+      <button type="submit" class="primary-btn">Sign Up</button>
+    </form>
+
+    <div class="link-container">
+      <p>Already have an account? <a routerLink="/signin">Sign In</a></p>
+      <div *ngIf="signupSuccess" class="success-message">
+        Signup successful! 🎉
+      </div>
+      
+      <div *ngIf="signupError" class="error-message">
+        {{ signupError }}
+      </div>
+    </div>
+  </div>
+</div>
+
+

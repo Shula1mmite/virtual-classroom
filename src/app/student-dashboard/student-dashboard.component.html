@@ -1,0 +1,30 @@
+
+<!-- Dropdown to select course -->
+<!-- Dropdown to select course -->
+<select [(ngModel)]="selectedCourse" (change)="onCourseSelect($event)">
+  <option value="" disabled hidden selected>Please select a course</option>
+  <option *ngFor="let course of predefinedCourses" [value]="course">{{ course }}</option>
+</select>
+
+
+
+<!-- Show available classes based on selected course -->
+<div *ngIf="filteredClasses.length > 0" class="class-list">
+  <div *ngFor="let classData of filteredClasses" class="class-item">
+    <div class="class-info">
+      <h2>{{ classData.className }}</h2>
+      <p>{{ classData.date }} - {{ classData.time }}</p>
+      <p>{{ classData.subject }} - {{ classData.description }}</p>
+    </div>
+    <button class="view-materials" (click)="viewCourseMaterials(selectedCourse)">
+      View Course Materials
+    </button>
+  </div>
+</div>
+
+<!-- Message when no classes are available -->
+<!-- Message when no classes are available -->
+<div *ngIf="filteredClasses.length === 0" class="no-classes-message">
+  No available classes for the selected course
+</div>
+

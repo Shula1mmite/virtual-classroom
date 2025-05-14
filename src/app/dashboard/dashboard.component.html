@@ -1,0 +1,41 @@
+<app-dashboard-header [username]="username" [email]="email"></app-dashboard-header>
+
+
+<!-- Dashboard component template -->
+
+<div *ngIf="!loading; else loadingTpl">
+
+  <section>
+    <h2>Recent Schedules</h2>
+    <ul *ngIf="schedules && schedules.length; else noSchedules">
+      <li *ngFor="let s of schedules">
+        {{ s.subject }} - {{ s.date }}
+      </li>
+    </ul>
+    <ng-template #noSchedules>
+      <p>No schedules available.</p>
+    </ng-template>
+  </section>
+
+  <section>
+    <h2>Recent Posts</h2>
+    <ul *ngIf="posts && posts.length; else noPosts">
+      <li *ngFor="let p of posts">
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.content }}</p>
+      </li>
+    </ul>
+    <ng-template #noPosts>
+      <p>No posts available.</p>
+    </ng-template>
+  </section>
+</div>
+
+<ng-template #loadingTpl>
+  <p>Loading dashboard data...</p>
+</ng-template>
+<app-dashboard-stats
+    [assignments]="assignments"
+    [schedules]="schedules"
+    [posts]="posts">
+  </app-dashboard-stats>
