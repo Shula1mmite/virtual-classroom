@@ -25,7 +25,8 @@
         <strong>Posted by:</strong> {{ post.username }} |
         <strong>Category:</strong> {{ post.category }}
       </p>
-      <small>{{ post.comments?.length || 0 }} comments</small>
+      <small>{{ (post.comments || []).length }} comments</small>
+
 
       <button (click)="toggleCommentInput(post.id)" class="comment-btn">Comment</button>
       <div *ngIf="post.showCommentInput" class="comment-input-container">
